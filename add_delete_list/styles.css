@@ -1,0 +1,22 @@
+.items:hover{
+    color:red;
+    font-size: large;
+
+}
+
+/* .items:after{
+    content:" Click to Delete";
+} */
+
+.btn{
+    padding: 5px 10px;
+    background-color: crimson;
+    color:white;
+    border:none;
+    border-radius: 5px;
+}
+
+.list{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+}
