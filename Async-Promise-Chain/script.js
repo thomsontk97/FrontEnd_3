@@ -1,4 +1,4 @@
-console.log("Promise Chaining.......");
+console.log("Async Promise Chaining.......");
 
 
 function greet() {
@@ -35,33 +35,24 @@ function takePayment() {
 }
 
 function thankYou() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Thank you, Please come again later...........")
-        }, 0)
-    })
+    console.log("Thank You, Please visit again");
 }
 
-greet()
-    .then((data) => {
-        console.log(data, new Date());
-        return takeOrder();
-    })
-    .then((data) => {
-        console.log(data, new Date());
-        return giveFood();
-    })
-    .then((data) => {
-        console.log(data, new Date());
-        return takePayment();
-    })
-    .then((data) => {
-        console.log(data, new Date());
-        return thankYou();
-    })
-    .then((data) => {
-        console.log(data, new Date());
-    })
-    .catch((err) => {
-        alert("err");
-    })
+async function callChain(){
+    const data1 = await greet();
+    console.log(data1,"     ", new Date());
+
+    const data2 = await takeOrder();
+    console.log(data2,"     ", new Date());
+
+    const data3 = await giveFood();
+    console.log(data3,"     ", new Date());
+
+    const data4 = await takePayment();
+    console.log(data4,"     ", new Date());
+    
+    thankYou();
+    
+}
+
+callChain();
